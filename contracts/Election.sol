@@ -1,4 +1,4 @@
-pragma solidity >=0.4.22 <0.8.0;
+pragma solidity >= 0.5.16;
 
 contract Election {
     // Model a Candidate
@@ -29,8 +29,7 @@ contract Election {
     }
 
 
-    function vote (uint  _candidateId) public {
-
+    function vote (uint  _candidateId) public   {
         // make sure that the perosn has not voted
         require(!voters[msg.sender]);
 
@@ -40,13 +39,11 @@ contract Election {
         // record
         voters[msg.sender] = true;
 
+
         // update canidates vote
 
-        candidates[_candidateId].voteCount++;
+        candidates[_candidateId].voteCount += 1;
 
-        return;
     }
-
-
 
 }
